@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Note-Nest</title>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 ">
+        <div class=" form p-10 text-white">
+            <form action="/create" method="post">
+                <input class="  outline-none  w-full rounded-lg block px-5  py-2 bg-zinc-800 " type="text"   placeholder="title goes to.." name="title">
+               <textarea class=" w-full mt-2 block resize-none px-5 rounded-lg py-2 bg-zinc-800 "  placeholder="write your task detail" name="details"></textarea>
+               <input class="mt-2 px-5 py-2 rounded-md bg-blue-600 " type="submit" value="Creat-Task">
+            </form>
+        </div>
+         <div class="task p-10 flex-wrap flex gap-3">
+  <% if (files.length > 0) { %>
+    <% files.forEach(function(val) { %>
+      <div class="w-72 px-3 py-4 bg-zinc-800 rounded-md">
+        <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
+        <div class="flex  mt-3  w-full justify-between ">
+        <a class=" text-light text-blue-500  " href="/files/<%= val %>">Read More....</a>
+        <a  class="text-zinc-600  "  href="/edit/<%= val %>">edit filename</a>
+        </div>
+        
+
+      </div>
+    <% }) %>
+  <% } else { %>
+    <h3 class="text-zinc-600">NO TASKS YET..</h3>
+  <% } %>
+</div>
+
+           
+        
+        
+      
+
+    </div>
+    <script src="/javascript/javascript.js"></script>
+</body>
+</html>
